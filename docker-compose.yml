@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    command: sh -c "ls && python gradiodemo.py"
+    volumes:
+      - .:/gradio-data
+    ports:
+      - "7860:7860"
+    networks:
+      - gradio-poc
+    env_file:
+      - ./.env
+networks:
+  gradio-poc:
